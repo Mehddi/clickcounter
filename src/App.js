@@ -1,23 +1,20 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { useState } from 'react'; //importation du hook useState
 
 function App() {
+  const [count, setCount] = useState(0); //définition du composant; count : valeur actuelle; setCount : fonction pourmettre à jour la valeur
+  const targetNumber = 10; //Objectif
+
+  const increment = () => {
+    setCount(count + 1);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <p>Count: {count}</p>
+      <p>Objectif: {targetNumber}</p>
+      <button onClick={increment}>Increment</button> {/*lol*/}
+      {count === targetNumber && <p>Bravo!</p>}
     </div>
   );
 }
